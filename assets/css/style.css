@@ -1,0 +1,318 @@
+/*============================================
+LAYOUT
+============================================*/
+html{
+  height: 100%; /*Pour le sticky footer*/
+  font-size: 62.5%; /*1 rem = 10px, base rem doit être défini dans html*/
+}
+body{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /*Sticky footer*/
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; /*Dispose le body en colonne pour positionner les éléments (sticky footer)*/
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. (Sticky footer) Sinon mettre html, body à height 100% */
+  margin: 0;
+  font-size: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  color: #CCC;
+  text-shadow: -1px -1px 1px #000;
+  background-color: #000;
+}
+header{
+  text-align: center;
+}
+/*============================================
+TYPO & LINKS & RANDOM
+============================================*/
+/*H*/
+h1, h1:before{
+  display: inline-block;
+  font-size: 6.4rem;
+  font-family: 'Uncial Antiqua', cursive;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(121, 248, 248, 0.5);
+  background: -webkit-gradient(linear, left top, right top, from(rgb(66, 91, 138)), to(rgb(121, 248, 248)));
+  background: linear-gradient(to right, rgb(66, 91, 138), rgb(121, 248, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h1:before{
+  content: '\f121';
+  margin-right: 1rem;
+  font-family: 'Font Awesome 5 Free';
+}
+h2, h3{
+  position: relative;
+  font-size: 3.6rem;
+  font-variant: small-caps;
+  color: rgb(66, 91, 138);
+}
+h2:before, h2:after{
+  content: '';
+  position: absolute;
+  width: 34rem;
+  height: 1px;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+h2:before{
+  bottom: -0.5rem;
+  background-color: rgba(66, 91, 138, 1);
+  background: -webkit-gradient(linear, right top, left top, from(rgba(66, 91, 138, 0)), color-stop(77%, rgba(66, 91, 138, 1)), color-stop(rgba(121, 248, 248, 1)), to(rgba(121, 248, 248, 0)));
+  background: linear-gradient(to left, rgba(66, 91, 138, 0), rgba(66, 91, 138, 1) 77%, rgba(121, 248, 248, 1), rgba(121, 248, 248, 0));
+}
+h2:after{
+  top: -0.5rem;
+  background-color: rgba(66, 91, 138, 1);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(66, 91, 138, 0)), color-stop(77%, rgba(66, 91, 138, 1)), color-stop(rgba(121, 248, 248, 1)), to(rgba(121, 248, 248, 0)));
+  background: linear-gradient(to right, rgba(66, 91, 138, 0), rgba(66, 91, 138, 1) 77%, rgba(121, 248, 248, 1), rgba(121, 248, 248, 0));
+}
+/*LINKS*/
+a{
+  color: rgb(66, 91, 138);
+  text-decoration: none;
+  -webkit-transition: 240ms;
+  transition: 240ms;
+}
+/*RANDOM*/
+abbr{
+  position: relative;
+  cursor: help;
+  text-decoration: none;
+}
+abbr:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 90%;
+  border-bottom: 1px dashed rgb(66, 91, 138);
+  -webkit-transition: 240ms;
+  transition: 240ms;
+}
+abbr:hover:after{
+  width: 100%;
+  border-bottom-color: rgb(121, 248, 248);
+}
+/*============================================
+CONTENT : DASHBOARD
+============================================*/
+.dashboard{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; /*Sticky footer, ce bloc doit prendre toute la place dispo pour tjrs pousser le footer en bas*/
+  margin-bottom: 1rem;
+}
+/*CARD CONTAINER*/
+.dashboard-content{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; /*Centre les enfants horizontalement <> align-items qui le fait verticalement*/
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap; /*En ligne et passe la la ligne si besoin*/
+  width: 100%; /*Comme ce bloc est l'enfant d'un flex, je dois lui dire de prendre toute la place pour pouvoir centrer son contenu avec justify-content*/
+  margin-bottom: auto; /*Place le bloc bien vers le haut en poussant le footer tout en bas (sticky footer), évite que le contenu du bloc grossisse pour prendre toute la place dispo*/
+  padding: 1rem;
+}
+/*CARDS*/
+.card{
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 35%;
+          flex: 0 0 35%; /*flex-grow(grossit) | flex-shrink(rétrécit) | flex-basis (taille ~ width)*/
+  padding: 2rem 1rem 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  background-color: rgba(13, 19, 26, 0.9);
+  background: linear-gradient(225deg, rgba(22, 32, 42, 0.9),  rgba(13, 19, 26, 0.9) 77%);
+  border: 4px double rgb(27, 39, 51);
+  -webkit-box-shadow: 1px 1px 5px rgba(66, 91, 138, 1);
+          box-shadow: 1px 1px 5px rgba(66, 91, 138, 1);
+  -webkit-transition: 240ms;
+  transition: 240ms;
+}
+.card:hover{
+  -webkit-box-shadow: 1px 1px 5px rgba(121, 248, 248, 1);
+          box-shadow: 1px 1px 5px rgba(121, 248, 248, 1);
+}
+/*ICONS*/
+.card i[class*="fa-"]{
+  font-size: 4.8rem;
+}
+/*CI ICON*/
+.card .fa-hotjar{
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 1), 0 0 0px rgba(0, 0, 0, 0);
+  -webkit-transition: 240ms;
+  transition: 240ms;
+}
+.card:hover .fa-hotjar{
+  color: rgba(221, 72, 20, 1);
+  text-shadow: -1px -1px 1px rgba(221, 149, 67, 1), 0 0 25px rgba(221, 72, 20, 0.7);
+}
+/*TITLE*/
+.card h3{
+  margin: 0;
+}
+.card h3 a:hover,
+.card h3 a:focus{
+  color: rgb(103, 142, 214);
+  -webkit-animation: poof 240ms linear;
+  animation: poof 240ms linear;
+}
+@-webkit-keyframes poof {
+  0% {
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 1), 0 0 0 rgba(103, 142, 214, 0), 0 0 0 rgba(103, 142, 214, 0), 0 0 0 rgba(103, 142, 214, 0);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 25px rgba(103, 142, 214, 1), 0 0 25px rgba(103, 142, 214, 1), 0 0 25px rgba(103, 142, 214, 1);
+  }
+  100% {
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 1), 0 0 50px rgba(103, 142, 214, 0), 0 0 50px rgba(103, 142, 214, 0), 0 0 50px rgba(103, 142, 214, 0);
+  }
+}
+@keyframes poof {
+  0% {
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 1), 0 0 0 rgba(103, 142, 214, 0), 0 0 0 rgba(103, 142, 214, 0), 0 0 0 rgba(103, 142, 214, 0);
+  }
+  50% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 25px rgba(103, 142, 214, 1), 0 0 25px rgba(103, 142, 214, 1), 0 0 25px rgba(103, 142, 214, 1);
+  }
+  100% {
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 1), 0 0 50px rgba(103, 142, 214, 0), 0 0 50px rgba(103, 142, 214, 0), 0 0 50px rgba(103, 142, 214, 0);
+  }
+}
+/*CONTENT*/
+.card hr{
+  border-top: 1px solid #000;
+  border-bottom: 1px solid rgb(27, 39, 51);
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.card ul{
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.card ul li{
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem; /*Pour être égal au padding-top de .card : 2rem et espacer les li s'il y a plusieurs lignes*/
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+/*============================================
+FOOTER
+============================================*/
+footer{
+  -ms-flex-negative: 0;
+      flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. (sticky footer) Shrink = rétrécir, nbrs positifs (3 : prend 3 fois moins de place que le reste)*/
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+footer:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 90%;
+  height: 2px;
+  background: -webkit-gradient(linear,
+  left top, right top,
+  from(rgba(121, 248, 248, 0)),
+  color-stop(15%, rgba(121, 248, 248, 1)),
+  color-stop(20%, rgba(66, 91, 138, 1)),
+  color-stop(80%, rgba(66, 91, 138, 1)),
+  color-stop(85%, rgba(121, 248, 248, 1)),
+  to(rgba(121, 248, 248, 0)));
+  background: linear-gradient(to right,
+  rgba(121, 248, 248, 0) 0%,
+  rgba(121, 248, 248, 1) 15%,
+  rgba(66, 91, 138, 1) 20%,
+  rgba(66, 91, 138, 1) 80%,
+  rgba(121, 248, 248, 1) 85%,
+  rgba(121, 248, 248, 0) 100%);
+}
+/*============================================
+MEDIA
+============================================*/
+@media screen and (max-width: 991.98px) /*LG*/
+{
+
+  body{
+    font-size: 1.8rem;
+  }
+  h1, h1:before{
+    font-size: 5.4rem; /*-1rem*/
+  }
+  h2, h3{
+    font-size: 3.4rem; /*-0.2rem*/
+  }
+  h2:before, h2:after{
+    width: 32.5rem;  /*-1.5rem*/
+  }
+  .card{
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 40%;
+            flex: 0 1 40%; /*Laisse flex-grow à 0 sinon les items peuvent grossir et prendre toute la largeur*/
+  }
+  .card i[class*="fa-"]{
+    font-size: 4.2rem; /*-0.6rem*/
+  }
+
+}
+@media screen and (max-width: 767.98px) /*MD*/
+{
+
+  h1, h1:before{
+    font-size: 4.4rem;
+  }
+  h2, h3{
+    font-size: 3rem;
+  }
+  h2:before, h2:after{
+    width: 31rem;
+  }
+  .card{
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%; /*Peut grandir pour absorber l'espace libre disponible dans le conteneur flexible ou rétrécir à sa taille minimale pour rentrer dans le conteneur, prend toute la place et va à la ligne grâce au wrap*/
+  }
+  .card i[class*="fa-"]{
+    font-size: 3.6rem;
+  }
+
+}
+@media screen and (max-width: 575.98px) /*SM*/
+{
+
+  h1, h1:before{
+    font-size: 3.4rem;
+  }
+  h2, h3{
+    font-size: 2.8rem;
+  }
+  h2:before, h2:after{
+    width: 29.5rem;
+  }
+  .card i[class*="fa-"]{
+    font-size: 3rem;
+  }
+
+}
