@@ -20,8 +20,19 @@ body{
   color: #CCC;
   text-shadow: -1px -1px 1px #000;
   background-color: #000;
+  background-image: url("../img/bg/dark-soil.jpg");
 }
 header{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto; /*Equivaut à un flex none, pour éviter un bug sur chrome qui provoque le survole du header par l'autre flexbox (dashboard) du dessous*/
   text-align: center;
 }
 /*============================================
@@ -30,6 +41,8 @@ TYPO & LINKS & RANDOM
 /*H*/
 h1, h1:before{
   display: inline-block;
+  margin-left: auto; /*Pour que le flex n'oblige pas la largeur du h1 à prendre tt l'espace et le centre quand mm*/
+  margin-right: auto; /*Pour que le flex n'oblige pas la largeur du h1 à prendre tt l'espace et le centre quand mm*/
   font-size: 6.4rem;
   font-family: 'Uncial Antiqua', cursive;
   text-transform: uppercase;
@@ -50,23 +63,29 @@ h2, h3{
   font-variant: small-caps;
   color: rgb(66, 91, 138);
 }
+h2{
+  margin-left: auto; /*Pour que le flex n'oblige pas la largeur du h1 à prendre tt l'espace et le centre quand mm*/
+  margin-right: auto; /*Pour que le flex n'oblige pas la largeur du h1 à prendre tt l'espace et le centre quand mm*/
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(20%, rgba(0, 0, 0, 0.5)), color-stop(80%, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+}
 h2:before, h2:after{
   content: '';
   position: absolute;
-  width: 34rem;
+  width: 100%;
   height: 1px;
   margin: auto;
   left: 0;
   right: 0;
 }
 h2:before{
-  bottom: -0.5rem;
+  bottom: 0;
   background-color: rgba(66, 91, 138, 1);
   background: -webkit-gradient(linear, right top, left top, from(rgba(66, 91, 138, 0)), color-stop(77%, rgba(66, 91, 138, 1)), color-stop(rgba(121, 248, 248, 1)), to(rgba(121, 248, 248, 0)));
   background: linear-gradient(to left, rgba(66, 91, 138, 0), rgba(66, 91, 138, 1) 77%, rgba(121, 248, 248, 1), rgba(121, 248, 248, 0));
 }
 h2:after{
-  top: -0.5rem;
+  top: 0;
   background-color: rgba(66, 91, 138, 1);
   background: -webkit-gradient(linear, left top, right top, from(rgba(66, 91, 138, 0)), color-stop(77%, rgba(66, 91, 138, 1)), color-stop(rgba(121, 248, 248, 1)), to(rgba(121, 248, 248, 0)));
   background: linear-gradient(to right, rgba(66, 91, 138, 0), rgba(66, 91, 138, 1) 77%, rgba(121, 248, 248, 1), rgba(121, 248, 248, 0));
@@ -118,12 +137,12 @@ CONTENT : DASHBOARD
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; /*Centre les enfants horizontalement <> align-items qui le fait verticalement*/
+      -ms-flex-pack: center;
+          justify-content: center; /*Centre les enfants horizontalement <> align-items qui le fait verticalement*/
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap; /*En ligne et passe la la ligne si besoin*/
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; /*En ligne et passe la la ligne si besoin*/
   width: 100%; /*Comme ce bloc est l'enfant d'un flex, je dois lui dire de prendre toute la place pour pouvoir centrer son contenu avec justify-content*/
   margin-bottom: auto; /*Place le bloc bien vers le haut en poussant le footer tout en bas (sticky footer), évite que le contenu du bloc grossisse pour prendre toute la place dispo*/
   padding: 1rem;
@@ -170,7 +189,7 @@ CONTENT : DASHBOARD
 .card h3 a:focus{
   color: rgb(103, 142, 214);
   -webkit-animation: poof 240ms linear;
-  animation: poof 240ms linear;
+          animation: poof 240ms linear;
 }
 @-webkit-keyframes poof {
   0% {
@@ -222,7 +241,9 @@ footer{
       flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. (sticky footer) Shrink = rétrécir, nbrs positifs (3 : prend 3 fois moins de place que le reste)*/
   position: relative;
   padding: 1rem;
+  font-variant: small-caps;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 footer:before{
   content: '';
@@ -264,9 +285,6 @@ MEDIA
   h2, h3{
     font-size: 3.4rem; /*-0.2rem*/
   }
-  h2:before, h2:after{
-    width: 32.5rem;  /*-1.5rem*/
-  }
   .card{
     -webkit-box-flex: 0;
         -ms-flex: 0 1 40%;
@@ -286,9 +304,6 @@ MEDIA
   h2, h3{
     font-size: 3rem;
   }
-  h2:before, h2:after{
-    width: 31rem;
-  }
   .card{
     -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
@@ -307,9 +322,6 @@ MEDIA
   }
   h2, h3{
     font-size: 2.8rem;
-  }
-  h2:before, h2:after{
-    width: 29.5rem;
   }
   .card i[class*="fa-"]{
     font-size: 3rem;
