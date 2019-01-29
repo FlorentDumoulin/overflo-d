@@ -119,6 +119,16 @@ abbr:hover:after{
   width: 100%;
   border-bottom-color: rgb(121, 248, 248);
 }
+/*ALERT*/
+.alert-error{
+  padding: 1rem;
+  text-align: center;
+  color: rgb(248, 18, 58);
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+  border: 1px solid rgb(248, 18, 58);
+}
 /*============================================
 CONTENT : DASHBOARD
 ============================================*/
