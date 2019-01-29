@@ -158,8 +158,8 @@ CONTENT : DASHBOARD
   background-color: rgba(13, 19, 26, 0.9);
   background: linear-gradient(225deg, rgba(22, 32, 42, 0.9),  rgba(13, 19, 26, 0.9) 77%);
   border: 4px double rgb(27, 39, 51);
-  -webkit-box-shadow: 1px 1px 5px rgba(66, 91, 138, 1);
-          box-shadow: 1px 1px 5px rgba(66, 91, 138, 1);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
   -webkit-transition: 240ms;
   transition: 240ms;
 }
