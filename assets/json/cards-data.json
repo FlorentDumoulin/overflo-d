@@ -5,7 +5,7 @@
     "linkTitle": "Utilisation de Git et GitHub",
     "title": "Git & GitHub",
     "list": [
-      "<abbr title=\"Asynchronous JavaScript and XML\">AJAX</abbr>", "Littéraux de gabarits",
+      "<abbr title=\"Asynchronous JavaScript And XML\">AJAX</abbr>", "Littéraux de gabarits",
       "<abbr title=\"JavaScript Object Notation\">JSON</abbr>", "Responsive Design", "Flexbox"
     ]
   },
