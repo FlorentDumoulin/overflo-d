@@ -180,14 +180,11 @@ CONTENT : DASHBOARD
 /*ICONS*/
 .card i[class*="fa-"]{
   font-size: 4.8rem;
-}
-/*CI ICON*/
-.card .fa-hotjar{
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 1), 0 0 0px rgba(0, 0, 0, 0);
   -webkit-transition: 240ms;
   transition: 240ms;
 }
-.card:hover .fa-hotjar{
+.card:hover i[class*="fa-"]{
   color: rgba(221, 72, 20, 1);
   text-shadow: -1px -1px 1px rgba(221, 149, 67, 1), 0 0 25px rgba(221, 72, 20, 0.7);
 }

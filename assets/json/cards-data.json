@@ -1,16 +1,19 @@
 [
   {
+    "icon": "fab fa-github",
+    "link": "https://github.com/FlorentDumoulin/overflo-d",
+    "linkTitle": "Utilisation de Git et GitHub",
+    "title": "Git & GitHub",
+    "list": [
+      "<abbr title=\"Asynchronous JavaScript and XML\">AJAX</abbr>", "Littéraux de gabarits",
+      "<abbr title=\"JavaScript Object Notation\">JSON</abbr>", "Responsive Design", "Flexbox"
+    ]
+  },
+  {
     "icon": "fab fa-hotjar",
     "link": "cip",
     "linkTitle": "Projet Jarditou",
     "title": "CodeIgniter",
     "list": ["Bootstrap", "Responsive Design", "Multilingue", "Sessions", "<abbr title=\"Create Read Update Delete\">CRUD</abbr>", "& plus..."]
-  },
-  {
-    "icon": "fas fa-terminal",
-    "link": "#",
-    "linkTitle": "Title",
-    "title": "Titre",
-    "list": ["Texte", "Texte", "Texte..."]
   }
 ]
