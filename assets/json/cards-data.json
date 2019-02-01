@@ -15,5 +15,12 @@
     "linkTitle": "Projet Jarditou",
     "title": "CodeIgniter",
     "list": ["Bootstrap", "Responsive Design", "Multilingue", "Sessions", "<abbr title=\"Create Read Update Delete\">CRUD</abbr>", "& plus..."]
+  },
+  {
+    "icon": "fas fa-laptop-code",
+    "link": "e-monsite",
+    "linkTitle": "Brève présentation du CMS en ligne e-monsite",
+    "title": "Reveal.js",
+    "list": ["Installation des dépendances avec <abbr title=\"Gestionnaire de paquets de Node.js\">NPM</abbr>", "Syntaxe Markdown", "SASS"]
   }
 ]
